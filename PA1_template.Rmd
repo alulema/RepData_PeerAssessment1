@@ -1,8 +1,13 @@
 # Reproducible Research: Peer Assessment 1
 
+```{r mkdate, echo=FALSE}
+time <- format(Sys.time(), "%b %d %X %Y")
+```
+Alexis Alulema.
+
+`r time`
 
 ## Loading and preprocessing the data
-
 
 Reads all information in CSV file.
 ```{r}
@@ -15,7 +20,7 @@ time <- formatC(allData$interval / 100, 2, format='f')
 allData$rawDate <- as.POSIXct(paste(allData$date, time),format='%Y-%m-%d %H.%M', tz='GMT')
 ```
 
-Helper column 'timestamp' created to have a reference point regarding current datetime.
+Column 'timestamp' created to have a reference point regarding current datetime.
 ```{r}
 allData$timestamp <- format(allData$rawDate, format='%H:%M:%S')
 allData$timestamp <- as.POSIXct(allData$timestamp, format='%H:%M:%S')
